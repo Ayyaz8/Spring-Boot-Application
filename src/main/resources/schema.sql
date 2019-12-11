@@ -1,0 +1,8 @@
+
+  
+CREATE TABLE USER_TABLE (
+  user_id INT  PRIMARY KEY ,
+  user_name VARCHAR(250) NOT NULL ,
+  password VARCHAR(250) NOT NULL,
+  status VARCHAR(250) NOT NULL
+);
