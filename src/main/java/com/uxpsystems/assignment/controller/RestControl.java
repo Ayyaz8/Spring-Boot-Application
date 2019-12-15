@@ -29,13 +29,17 @@ public class RestControl {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ResponseEntity<Void> createUser(@RequestBody UserEntity user) {
+	public ResponseEntity<String> createUser(@RequestBody UserEntity user) {
 		if (!userRepository.existsById(user.getUser_id())) {
+			
+			if(!user.getStatus().equalsIgnoreCase("ACTIVATED") && !user.getStatus().equalsIgnoreCase("DEACTIVATED")) {
+				return new ResponseEntity<>("Status of user should be valid",HttpStatus.BAD_REQUEST);
+			}
 			userRepository.save(user);
 
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("User with given id already exist",HttpStatus.BAD_REQUEST);
 
 	}
 
@@ -53,13 +57,13 @@ public class RestControl {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-	public ResponseEntity<Void> updateUser(@RequestBody UserEntity user) {
+	public ResponseEntity<String> updateUser(@RequestBody UserEntity user) {
 
 		if (!userRepository.existsById(user.getUser_id())) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("User does not exist to be updated",HttpStatus.BAD_REQUEST);
 		}
 		userRepository.save(user);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<>("User updated",HttpStatus.OK) ;
 
 	}
 
