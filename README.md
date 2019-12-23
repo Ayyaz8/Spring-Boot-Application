@@ -10,7 +10,7 @@ DB -- H2 Database.
 
 Controller class is  : \Spring-Boot-Application-master\src\main\java\com\uxpsystems\assignment\controller\RestControl.java
 
-*Spring Security Using  Spring Basic Authentication*
+*Security Using Spring Basic Authentication*
 Basic Authentication is added for API's using Spring Basic Authentication.
 \Spring-Boot-Application-master\src\main\java\com\uxpsystems\assignment\controller\SecurityConfig.java
 
