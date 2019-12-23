@@ -14,7 +14,7 @@ Controller class is  : \Spring-Boot-Application-master\src\main\java\com\uxpsyst
 Basic Authentication is added for API's using Spring Basic Authentication.
 \Spring-Boot-Application-master\src\main\java\com\uxpsystems\assignment\controller\SecurityConfig.java
 
-Note:- Username : admin
+Note:- Username:admin
 Password: password
 
 *Unit testing is added in below class using JUNIT and Mockito*
